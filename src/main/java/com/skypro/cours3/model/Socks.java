@@ -1,10 +1,10 @@
 package com.skypro.cours3.model;
 
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
-
 
 
 public class Socks {
@@ -12,11 +12,22 @@ public class Socks {
     private final Size size;
     private final Color color;
 
-    public Socks(int cottonPart, Size size, Color color) {
-        this.cottonPart = cottonPart;
-        this.size = size;
+
+    @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
+    public Socks(@JsonProperty("cottonPart") int cottonPart,
+                 @JsonProperty("size") Size size,
+                 @JsonProperty("color") Color color) {
         this.color = color;
+        this.size = size;
+        this.cottonPart = cottonPart;
     }
+//
+//    public Socks(int cottonPart, Size size, Color color) {
+//        this.cottonPart = cottonPart;
+//        this.size = size;
+//        this.color = color;
+//    }
+
 
     public int getCottonPart() {
         return cottonPart;
@@ -42,5 +53,6 @@ public class Socks {
     public Color getColor() {
         return color;
     }
+
 }
 

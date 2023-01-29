@@ -20,6 +20,7 @@ public class SocksController {
     public SocksController(SockService sockService) {
         this.sockService = sockService;
     }
+
     @ExceptionHandler(InvalidSockRequestException.class)
     public ResponseEntity<String> handleInvalidException(InvalidSockRequestException invalidSockRequestException) {
         return ResponseEntity.badRequest().body(invalidSockRequestException.getMessage());
@@ -56,11 +57,12 @@ public class SocksController {
     @GetMapping
     @Operation(summary = "Просмотр наличия на носков на складе согласно указанных параметров")
     public ResponseEntity<Integer> getAllQuantity(@RequestParam(required = false, name = "color") Color color,
-                             @RequestParam(required = false, name = "size") Size size,
-                             @RequestParam(required = false, name = "cottonMin") Integer cottonMin,
-                             @RequestParam(required = false, name = "cottonMax") Integer cottonMax) {
+                                                  @RequestParam(required = false, name = "size") Size size,
+                                                  @RequestParam(required = false, name = "cottonMin") Integer cottonMin,
+                                                  @RequestParam(required = false, name = "cottonMax") Integer cottonMax) {
         return ResponseEntity.ok(sockService.getAllQuantity(color, size, cottonMin, cottonMax));
     }
+
     @DeleteMapping
     @Operation(summary = "Списание носков")
     @ApiResponses(value = {
@@ -71,5 +73,6 @@ public class SocksController {
     public void removeSocks(@RequestBody SimilarSocks similarSocks) {
         sockService.realization(similarSocks);
     }
+
 
 }

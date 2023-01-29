@@ -9,6 +9,8 @@ import java.util.Map;
 public interface SockService {
 
     Map addSock(SimilarSocks similarSocks);
-    void realization (SimilarSocks similarSocks);
+
+    void realization(SimilarSocks similarSocks);
+
     int getAllQuantity(Color color, Size size, Integer cottonMin, Integer cottonMax);
 }

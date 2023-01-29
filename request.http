@@ -4,27 +4,29 @@ Content-Type: application/json
 
 {
   "cottonPart":40,
-  "size":"SMALL_36",
+  "size":"36",
   "color":"BLACK",
   "quantity":5
 }
 
 
 ###
-GET http://localhost:8080/api/sock?color=BLACK
+GET http://localhost:8080/api/sock?size=36
 ###
 GET http://localhost:8080/api/sock?color=RED
 ###
+GET http://localhost:8080/api/sock?color=BLACK?size=SMALL_36
+###
 GET http://localhost:8080/api/sock?ccottonmax=50
 ###
-PUT http://localhost:8080/api/sock?ccottonmax=50.
+PUT http://localhost:8080/api/sock?ccottonmin=50.
 ###
 PUT http://localhost:8080/api/sock
 Content-Type: application/json
 
 {
   "cottonPart":40,
-  "size":"SMALL_36",
+  "size":"36",
   "color":"BLACK",
   "quantity":5
 }
@@ -34,7 +36,7 @@ Content-Type: application/json
 
 {
 "cottonPart":40,
-"size":"SMALL_36",
+"size":"36",
 "color":"BLACK",
 "quantity":5
 }
