@@ -6,6 +6,8 @@ import com.skypro.cours3.model.Color;
 import com.skypro.cours3.dto.SimilarSocks;
 import com.skypro.cours3.model.Size;
 import com.skypro.cours3.model.Socks;
+import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -75,6 +77,13 @@ public class SockServiceImpl implements SockService {
             throw new InvalidSockRequestException("Процент хлопка должен быть между 0 и 100 / Cotton Percentage should be between 0 and 100");
         }
 
+    }
+    @Component
+    public class StringToLevelConverter implements Converter<String, Size> {
+        @Override
+        public Size convert(String source) {
+            return Size.fromBySize(source);
+        }
     }
 
 }

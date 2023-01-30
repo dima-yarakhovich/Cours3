@@ -9,7 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 
-@AllArgsConstructor
+
 public class SimilarSocks {
     private int cottonPart;
     private Size size;
